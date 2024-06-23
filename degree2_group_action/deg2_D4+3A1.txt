@@ -1,0 +1,72 @@
+deg2_D4+3A1.txt
+(-2)-curves:
+[
+    ( 1 -1 -1 -1  0  0  0  0),
+    ( 0  0  1 -1  0  0  0  0),
+    ( 0  0  0  1 -1  0  0  0),
+    ( 0  0  0  0  1 -1  0  0),
+    ( 0  0  0  0  0  0  1 -1),
+    ( 2  0 -1 -1 -1 -1 -1 -1),
+    ( 1 -1  0  0  0  0 -1 -1)
+]
+# of (-1)-classes = 56
+# of (-1)-curves = 4
+list of (-1)-curves:
+[*
+    (0 1 0 0 0 0 0 0),
+    ( 1  0 -1  0  0  0 -1  0),
+    (0 0 0 0 0 1 0 0),
+    (0 0 0 0 0 0 0 1)
+*]
+The intersection matrix of negative curves:
+[-2  0  1  0  0  0  0  1  0  0  0]
+[ 0 -2  1  0  0  0  0  0  1  0  0]
+[ 1  1 -2  1  0  0  0  0  0  0  0]
+[ 0  0  1 -2  0  0  0  0  0  1  0]
+[ 0  0  0  0 -2  0  0  0  1  0  1]
+[ 0  0  0  0  0 -2  0  0  0  1  1]
+[ 0  0  0  0  0  0 -2  1  0  0  1]
+[ 1  0  0  0  0  0  1 -1  0  0  0]
+[ 0  1  0  0  1  0  0  0 -1  0  0]
+[ 0  0  0  1  0  1  0  0  0 -1  0]
+[ 0  0  0  0  1  1  1  0  0  0 -1]
+The automorphism group of dual graph:
+Permutation group AutoGroup acting on a set of cardinality 22
+Order = 6 = 2 * 3
+    (1, 2)(5, 7)(8, 9)(12, 13)(16, 18)(19, 20)
+    (1, 4)(6, 7)(8, 10)(12, 15)(17, 18)(19, 21)
+Group ID:
+<6, 1>
+================================
+Subgroup No.1/4
+Permutation group acting on a set of cardinality 22
+Order = 1
+Group ID:
+<1, 1>
+Picard rank = 8
+================================
+Subgroup No.2/4
+Permutation group acting on a set of cardinality 22
+Order = 2
+    (1, 2)(5, 7)(8, 9)(12, 13)(16, 18)(19, 20)
+Group ID:
+<2, 1>
+Picard rank = 6
+================================
+Subgroup No.3/4
+Permutation group acting on a set of cardinality 22
+Order = 3
+    (1, 4, 2)(5, 7, 6)(8, 10, 9)(12, 15, 13)(16, 18, 17)(19, 21, 20)
+Group ID:
+<3, 1>
+Picard rank = 4
+================================
+Subgroup No.4/4
+Permutation group acting on a set of cardinality 22
+Order = 6 = 2 * 3
+    (1, 2)(5, 7)(8, 9)(12, 13)(16, 18)(19, 20)
+    (1, 4, 2)(5, 7, 6)(8, 10, 9)(12, 15, 13)(16, 18, 17)(19, 21, 20)
+Group ID:
+<6, 1>
+Picard rank = 4
+================================

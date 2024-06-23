@@ -1,0 +1,39 @@
+deg3_A5+A1.txt
+(-2)-curves:
+[
+    ( 0  1 -1  0  0  0  0),
+    ( 0  0  1 -1  0  0  0),
+    ( 0  0  0  1 -1  0  0),
+    ( 0  0  0  0  1 -1  0),
+    ( 0  0  0  0  0  1 -1),
+    ( 2 -1 -1 -1 -1 -1 -1)
+]
+# of (-1)-classes = 27
+# of (-1)-curves = 2
+list of (-1)-curves:
+[*
+    ( 1 -1 -1  0  0  0  0),
+    (0 0 0 0 0 0 1)
+*]
+The intersection matrix of negative curves:
+[-2  1  0  0  0  0  0  0]
+[ 1 -2  1  0  0  0  1  0]
+[ 0  1 -2  1  0  0  0  0]
+[ 0  0  1 -2  1  0  0  0]
+[ 0  0  0  1 -2  0  0  1]
+[ 0  0  0  0  0 -2  0  1]
+[ 0  1  0  0  0  0 -1  0]
+[ 0  0  0  0  1  1  0 -1]
+The automorphism group of dual graph:
+Permutation group AutoGroup acting on a set of cardinality 16
+Order = 1
+Group ID:
+<1, 1>
+================================
+Subgroup No.1/1
+Permutation group acting on a set of cardinality 16
+Order = 1
+Group ID:
+<1, 1>
+Picard rank = 7
+================================

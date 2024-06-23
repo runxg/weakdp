@@ -1,0 +1,56 @@
+deg2_A5+A1(6l).txt
+(-2)-curves:
+[
+    ( 0  0  1 -1  0  0  0  0),
+    ( 0  0  0  1 -1  0  0  0),
+    ( 0  0  0  0  1 -1  0  0),
+    ( 0  0  0  0  0  1 -1  0),
+    ( 0  0  0  0  0  0  1 -1),
+    ( 2  0 -1 -1 -1 -1 -1 -1)
+]
+# of (-1)-classes = 56
+# of (-1)-curves = 6
+list of (-1)-curves:
+[*
+    (0 1 0 0 0 0 0 0),
+    ( 3 -2 -1 -1 -1 -1 -1 -1),
+    ( 1 -1 -1  0  0  0  0  0),
+    ( 1  0 -1 -1  0  0  0  0),
+    ( 2 -1 -1 -1 -1 -1  0  0),
+    (0 0 0 0 0 0 0 1)
+*]
+The intersection matrix of negative curves:
+[-2  1  0  0  0  0  0  0  1  0  0  0]
+[ 1 -2  1  0  0  0  0  0  0  1  0  0]
+[ 0  1 -2  1  0  0  0  0  0  0  0  0]
+[ 0  0  1 -2  1  0  0  0  0  0  1  0]
+[ 0  0  0  1 -2  0  0  0  0  0  0  1]
+[ 0  0  0  0  0 -2  0  0  1  0  0  1]
+[ 0  0  0  0  0  0 -1  2  1  0  1  0]
+[ 0  0  0  0  0  0  2 -1  0  1  0  1]
+[ 1  0  0  0  0  1  1  0 -1  0  0  0]
+[ 0  1  0  0  0  0  0  1  0 -1  0  0]
+[ 0  0  0  1  0  0  1  0  0  0 -1  0]
+[ 0  0  0  0  1  1  0  1  0  0  0 -1]
+The automorphism group of dual graph:
+Permutation group AutoGroup acting on a set of cardinality 24
+Order = 2
+    (1, 5)(2, 4)(7, 8)(9, 12)(10, 11)(13, 17)(14, 16)(19, 20)(21, 24)(22, 23)
+Group ID:
+<2, 1>
+================================
+Subgroup No.1/2
+Permutation group acting on a set of cardinality 24
+Order = 1
+Group ID:
+<1, 1>
+Picard rank = 8
+================================
+Subgroup No.2/2
+Permutation group acting on a set of cardinality 24
+Order = 2
+    (1, 5)(2, 4)(7, 8)(9, 12)(10, 11)(13, 17)(14, 16)(19, 20)(21, 24)(22, 23)
+Group ID:
+<2, 1>
+Picard rank = 5
+================================

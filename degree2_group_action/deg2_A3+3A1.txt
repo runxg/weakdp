@@ -1,0 +1,86 @@
+deg2_A3+3A1.txt
+(-2)-curves:
+[
+    ( 0  0  0  0  1 -1  0  0),
+    ( 0  0  0  0  0  1 -1  0),
+    ( 0  0  0  0  0  0  1 -1),
+    ( 1 -1 -1 -1  0  0  0  0),
+    ( 0  0  1 -1  0  0  0  0),
+    ( 2  0 -1 -1 -1 -1 -1 -1)
+]
+# of (-1)-classes = 56
+# of (-1)-curves = 8
+list of (-1)-curves:
+[*
+    (0 1 0 0 0 0 0 0),
+    ( 1 -1  0  0 -1  0  0  0),
+    ( 2 -1  0  0 -1 -1 -1 -1),
+    ( 1  0 -1  0 -1  0  0  0),
+    (0 0 0 1 0 0 0 0),
+    ( 2 -1 -1  0 -1 -1 -1  0),
+    ( 1  0  0  0 -1 -1  0  0),
+    (0 0 0 0 0 0 0 1)
+*]
+The intersection matrix of negative curves:
+[-2  1  0  0  0  0  0  1  0  1  0  0  0  0]
+[ 1 -2  1  0  0  0  0  0  0  0  0  0  1  0]
+[ 0  1 -2  0  0  0  0  0  0  0  0  1  0  1]
+[ 0  0  0 -2  0  0  1  0  1  0  1  0  1  0]
+[ 0  0  0  0 -2  0  0  0  0  1  1  1  0  0]
+[ 0  0  0  0  0 -2  0  1  0  0  1  0  0  1]
+[ 0  0  0  1  0  0 -1  1  1  0  0  1  0  0]
+[ 1  0  0  0  0  1  1 -1  0  0  0  0  0  0]
+[ 0  0  0  1  0  0  1  0 -1  1  0  0  0  1]
+[ 1  0  0  0  1  0  0  0  1 -1  0  0  0  0]
+[ 0  0  0  1  1  1  0  0  0  0 -1  0  0  0]
+[ 0  0  1  0  1  0  1  0  0  0  0 -1  0  0]
+[ 0  1  0  1  0  0  0  0  0  0  0  0 -1  0]
+[ 0  0  1  0  0  1  0  0  1  0  0  0  0 -1]
+The automorphism group of dual graph:
+Permutation group AutoGroup acting on a set of cardinality 28
+Order = 4 = 2^2
+    (1, 3)(7, 9)(8, 14)(10, 12)(15, 17)(21, 23)(22, 28)(24, 26)
+    (5, 6)(7, 9)(8, 10)(12, 14)(19, 20)(21, 23)(22, 24)(26, 28)
+Group ID:
+<4, 2>
+================================
+Subgroup No.1/5
+Permutation group acting on a set of cardinality 28
+Order = 1
+Group ID:
+<1, 1>
+Picard rank = 8
+================================
+Subgroup No.2/5
+Permutation group acting on a set of cardinality 28
+Order = 2
+    (1, 3)(7, 9)(8, 14)(10, 12)(15, 17)(21, 23)(22, 28)(24, 26)
+Group ID:
+<2, 1>
+Picard rank = 6
+================================
+Subgroup No.3/5
+Permutation group acting on a set of cardinality 28
+Order = 2
+    (1, 3)(5, 6)(8, 12)(10, 14)(15, 17)(19, 20)(22, 26)(24, 28)
+Group ID:
+<2, 1>
+Picard rank = 6
+================================
+Subgroup No.4/5
+Permutation group acting on a set of cardinality 28
+Order = 2
+    (5, 6)(7, 9)(8, 10)(12, 14)(19, 20)(21, 23)(22, 24)(26, 28)
+Group ID:
+<2, 1>
+Picard rank = 6
+================================
+Subgroup No.5/5
+Permutation group acting on a set of cardinality 28
+Order = 4 = 2^2
+    (1, 3)(7, 9)(8, 14)(10, 12)(15, 17)(21, 23)(22, 28)(24, 26)
+    (5, 6)(7, 9)(8, 10)(12, 14)(19, 20)(21, 23)(22, 24)(26, 28)
+Group ID:
+<4, 2>
+Picard rank = 5
+================================

@@ -1,0 +1,242 @@
+{\rtf1\ansi\ansicpg936\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16920\viewh13100\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 InnerProductMatrix := DiagonalMatrix(Rationals(), 9, [1,-1,-1,-1,-1,-1,-1,-1,-1]);\
+VS := VectorSpace(Rationals(), 9, InnerProductMatrix);\
+l0 := VS!Vector([1,0,0,0,0,0,0,0,0]);\
+l1 := VS!Vector([0,1,0,0,0,0,0,0,0]);\
+l2 := VS!Vector([0,0,1,0,0,0,0,0,0]);\
+l3 := VS!Vector([0,0,0,1,0,0,0,0,0]);\
+l4 := VS!Vector([0,0,0,0,1,0,0,0,0]);\
+l5 := VS!Vector([0,0,0,0,0,1,0,0,0]);\
+l6 := VS!Vector([0,0,0,0,0,0,1,0,0]);\
+l7 := VS!Vector([0,0,0,0,0,0,0,1,0]);\
+l8 := VS!Vector([0,0,0,0,0,0,0,0,1]);\
+l := [* l0,l1,l2,l3,l4,l5,l6,l7,l8 *];\
+k8 := VS!Vector([-3,1,1,1,1,1,1,1,1]);\
+A0 := l0-l1-l2-l3;\
+A1 := l1-l2;\
+A2 := l2-l3;\
+A3 := l3-l4;\
+A4 := l4-l5;\
+A5 := l5-l6;\
+A6 := l6-l7;\
+A7 := l7-l8;\
+//\
+Minustwoclasses := [];\
+for i in [2..#l] do\
+    Append(~Minustwoclasses, -k8-l[i]);\
+for j in [i+1..#l] do\
+    Append(~Minustwoclasses, l[i]-l[j]);\
+    Append(~Minustwoclasses, -k8-l[1]+l[i]+l[j]);\
+for k in [j+1..#l] do\
+    Append(~Minustwoclasses, l[1]-l[i]-l[j]-l[k]);\
+end for; end for; end for;\
+for i in [1..#Minustwoclasses] do\
+    Append(~Minustwoclasses, -Minustwoclasses[i]);\
+end for;\
+//\
+Minusoneclasses := [];\
+for i in [2..#l] do\
+    Append(~Minusoneclasses, l[i]);\
+    Append(~Minusoneclasses, -2*k8-l[i]);\
+for j in [i+1..#l] do\
+    Append(~Minusoneclasses, -2*k8-l[1]+l[i]+l[j]);\
+    Append(~Minusoneclasses, -k8-l[i]+l[j]);\
+    Append(~Minusoneclasses, -k8+l[i]-l[j]);\
+    Append(~Minusoneclasses, l[1]-l[i]-l[j]);\
+for k in [j+1..#l] do\
+    Append(~Minusoneclasses, -k8+l[1]-l[i]-l[j]-l[k]);\
+    Append(~Minusoneclasses, -k8-l[1]+l[i]+l[j]+l[k]);\
+end for;end for;end for;\
+//\
+//define myFunction\
+myFunction := function(filename,Minustwocurves)\
+PrintFile(filename, filename);\
+PrintFile(filename, "(-2)-curves:");\
+PrintFile(filename, Minustwocurves);\
+Minusonecurves := [**];\
+for i in [1..#Minusoneclasses] do\
+    v := Minusoneclasses[i];\
+    addToArray := true;\
+    for j in [1..#Minustwocurves] do\
+        if InnerProduct(Minustwocurves[j],v) lt 0 then\
+            addToArray := false;\
+            break;\
+        end if;\
+    end for;\
+    if addToArray then\
+        Append(~Minusonecurves, v);\
+    end if;\
+end for;\
+//\
+PrintFile(filename, "# of (-1)-classes = " cat IntegerToString(#Minusoneclasses));\
+PrintFile(filename, "# of (-1)-curves = " cat IntegerToString(#Minusonecurves));\
+PrintFile(filename, "list of (-1)-curves:");\
+PrintFile(filename, Minusonecurves);\
+//\
+Negativecurves := Minustwocurves;\
+for i in [1..#Minusonecurves] do\
+    Append(~Negativecurves, Minusonecurves[i]);\
+end for;\
+AdjacencyMatrix := ZeroMatrix(Integers(), #Negativecurves, #Negativecurves);\
+for i in [1..#Negativecurves] do\
+for j in [1..#Negativecurves] do\
+    AdjacencyMatrix[i][j] := InnerProduct(Negativecurves[i],Negativecurves[j]);\
+end for;end for;\
+PrintFile(filename, "The intersection matrix of negative curves:");\
+PrintFile(filename,AdjacencyMatrix);\
+return Negativecurves;\
+end function;\
+\
+\
+BranchDivisors := function(filename,NC,degree)\
+NumNC:=#NC;\
+MinusTwoCurveIndex:=[];\
+for i in [1..NumNC] do\
+    if InnerProduct(NC[i],NC[i]) eq -2 then\
+        Append(~MinusTwoCurveIndex, i);\
+    end if;\
+end for;\
+Lat := Lattice(VS);\
+PrintFile(filename,"Possible branch divisors:");\
+combinations := Subsets(Set(MinusTwoCurveIndex));\
+multiComb:=\{\};\
+for i in combinations do\
+for j in combinations do\
+    Include(~multiComb, SetToMultiset(i) join SetToMultiset(j));\
+end for; end for;\
+if degree eq 3 then\
+    combinations := multiComb;\
+end if;\
+if degree gt 3 then\
+    PrintFile(filename,"Algorithm not applicible");\
+end if;\
+for i in combinations do\
+    NCSum := VS!Vector([0,0,0,0,0,0,0,0,0]);\
+    for ii in i do\
+        NCSum := NCSum + NC[ii];\
+    end for;\
+    if NCSum/degree in Lat then\
+        PrintFile(filename,NCSum);\
+        PrintFile(filename,i);\
+    end if;\
+end for;\
+PrintFile(filename,"The quotient group Pic(X)/E:");\
+PrintFile(filename,quo< Lat | NC[1..#MinusTwoCurveIndex] >);\
+return 0;\
+end function;\
+\
+\
+\
+\
+filename := "deg1, D8.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,A5,A6,A7,Minustwoclasses[36]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A8.txt";\
+NC := myFunction(filename,[A1,A2,A3,A4,A5,A6,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,3);\
+filename := "deg1, A7.txt";\
+NC := myFunction(filename,[A0,A3,A4,A5,A6,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 2A3.txt";\
+NC := myFunction(filename,[A0,A3,A4,A6,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D5+A3.txt";\
+NC := myFunction(filename,[A0,A1,A2,A3,A4,A6,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D4+A3.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,A6,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 4A2.txt";\
+NC := myFunction(filename,[A1,A2,A4,A5,A7,Minustwoclasses[240],A0,Minustwoclasses[89]]);\
+BranchDivisors(filename,NC,3);\
+filename := "deg1, 3A2.txt";\
+NC := myFunction(filename,[A1,A2,A4,A5,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,3);\
+filename := "deg1, E6+A2.txt";\
+NC := myFunction(filename,[A0,A1,A2,A3,A4,A5,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,3);\
+filename := "deg1, E5+A2.txt";\
+NC := myFunction(filename,[A1,A2,A3,A4,A5,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,3);\
+filename := "deg1, 6A1.txt";\
+NC := myFunction(filename,[A1,A3,A5,A7,Minustwoclasses[3],Minustwoclasses[67]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 5A1.txt";\
+NC := myFunction(filename,[A1,A3,A5,A7,Minustwoclasses[3]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A3+4A1.txt";\
+NC := myFunction(filename,[A0,A3,A2,A5,A7,Minustwoclasses[25],Minustwoclasses[34]]);\
+BranchDivisors(filename,NC,2);\
+\
+\
+filename := "deg1, A2+4A1.txt";\
+NC := myFunction(filename,[A0,A3,A5,A7,Minustwoclasses[25],Minustwoclasses[34]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 4A1.txt";\
+NC := myFunction(filename,[A3,A5,A7,Minustwoclasses[3]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D4+3A1.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,A6,Minustwoclasses[30],Minustwoclasses[36]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A3+3A1.txt";\
+NC := myFunction(filename,[A2,A3,A4,A6,Minustwoclasses[30],Minustwoclasses[36]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D6+2A1.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,A5,A6,Minustwoclasses[36],Minustwoclasses[120]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D5+2A1.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,A5,Minustwoclasses[36],Minustwoclasses[120]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D4+2A1.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,Minustwoclasses[36],Minustwoclasses[120]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A5+2A1.txt";\
+NC := myFunction(filename,[A2,A3,A4,A5,A6,Minustwoclasses[36],Minustwoclasses[120]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 2A3+2A1.txt";\
+NC := myFunction(filename,[A0,A3,A4,A6,A7,Minustwoclasses[240],A1,Minustwoclasses[68]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A3+2A1(44l).txt";\
+NC := myFunction(filename,[A2,A3,A4,A6,Minustwoclasses[36]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A3+A2+2A1.txt";\
+NC := myFunction(filename,[A0,A3,A4,A6,A7,A1,Minustwoclasses[68]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, E7+A1.txt";\
+NC := myFunction(filename,[A0,A1,A2,A3,A4,A5,A6,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, D6+A1.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,A5,A6,Minustwoclasses[36]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A7+A1.txt";\
+NC := myFunction(filename,[A1,A0,A3,A4,A5,A6,A7,Minustwoclasses[240]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, A5+A1(21l).txt";\
+NC := myFunction(filename,[A2,A3,A4,A5,A6,Minustwoclasses[36]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 2A3+A1.txt";\
+NC := myFunction(filename,[A0,A3,A4,A6,A7,Minustwoclasses[240],A1]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 3A2+A1.txt";\
+NC := myFunction(filename,[A1,A2,A4,A5,A0,Minustwoclasses[89],A7]);\
+BranchDivisors(filename,NC,3);\
+filename := "deg1, A5+A2+A1.txt";\
+NC := myFunction(filename,[A1,A2,A3,A4,A5,A7,Minustwoclasses[117],Minustwoclasses[119]]);\
+BranchDivisors(filename,NC,3);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 2D4.txt";\
+NC := myFunction(filename,[A0,A2,A3,A4,Minustwoclasses[149],\
+Minustwoclasses[34],Minustwoclasses[150],Minustwoclasses[111]]);\
+BranchDivisors(filename,NC,2);\
+filename := "deg1, 2A4.txt";\
+NC := myFunction(filename,[A0,A3,A4,A5,Minustwoclasses[2],Minustwoclasses[64],Minustwoclasses[117+120],Minustwoclasses[120]]);\
+BranchDivisors(filename,NC,5);\
+\
+\
+}

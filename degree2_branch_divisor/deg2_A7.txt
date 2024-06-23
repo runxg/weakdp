@@ -1,0 +1,38 @@
+deg2_A7.txt
+(-2)-curves:
+[
+    ( 0  1 -1  0  0  0  0  0),
+    ( 0  0  1 -1  0  0  0  0),
+    ( 0  0  0  1 -1  0  0  0),
+    ( 0  0  0  0  1 -1  0  0),
+    ( 0  0  0  0  0  1 -1  0),
+    ( 0  0  0  0  0  0  1 -1),
+    ( 2 -1 -1 -1 -1 -1 -1  0)
+]
+# of (-1)-classes = 56
+# of (-1)-curves = 2
+list of (-1)-curves:
+[*
+    ( 1 -1 -1  0  0  0  0  0),
+    (0 0 0 0 0 0 0 1)
+*]
+The intersection matrix of negative curves:
+[-2  1  0  0  0  0  0  0  0]
+[ 1 -2  1  0  0  0  0  1  0]
+[ 0  1 -2  1  0  0  0  0  0]
+[ 0  0  1 -2  1  0  0  0  0]
+[ 0  0  0  1 -2  1  0  0  0]
+[ 0  0  0  0  1 -2  1  0  1]
+[ 0  0  0  0  0  1 -2  0  0]
+[ 0  1  0  0  0  0  0 -1  0]
+[ 0  0  0  0  0  1  0  0 -1]
+Possible branch divisors:
+(0 0 0 0 0 0 0 0)
+{}
+( 2  0 -2  0 -2  0 -2  0)
+{ 1, 3, 5, 7 }
+The quotient group Pic(X)/E:
+Abelian Group isomorphic to Z/2 + Z
+Defined on 2 generators
+Relations:
+    2*$.1 = 0
